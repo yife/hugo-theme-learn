@@ -82,6 +82,8 @@ body {
   margin-right: 1rem !important;
 }
 
+/* Top bar of header */
+
 #top-bar {
   z-index: 1000;
 }
@@ -90,6 +92,30 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+.top-link {
+    position: relative;
+    z-index: 1;
+    float: right;
+    display: block;
+    margin-left : 0.5em;
+    margin-right: 0.5em;
+}
+
+.top-link, #body #breadcrumbs {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@media only all and (max-width: 70em) {
+.hideable-label{display:none;}
+}
+
+/* Button */
 .btn {
   display: inline-block !important;
   padding: 6px 12px !important;

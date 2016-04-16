@@ -27,14 +27,26 @@
         <div class="padding highlightable">
 
             <div id="top-bar">
+              {{ if and .IsPage .Site.Params.ideas.url }}
+                {{ $File := .File }}
+                {{ $title := .Scratch.Get "title" }}
+                {{with .Site.Params.ideas }}
+              <div class="top-link">
+                  <a class="ideas-link" href="{{ .url }}{{with .prefill }}{{ . }}{{ $title }}{{end}}" target="blank">
+                    <i class="fa fa-lightbulb-o"></i>
+                    <span class="hideable-label">{{ .label }}</span>
+                  </a>
+              </div>
+                {{ end }}
+              {{ end }}
               {{ if and .IsPage .Site.Params.editURL }}
                 {{ $File := .File }}
                 {{ $Site := .Site }}
                 {{with $File.Path }}
-              <div id="top-github-link">
+              <div class="top-link">
                   <a class="github-link" href="{{ $Site.Params.editURL }}{{ $File.Dir }}{{ $File.LogicalName }}" target="blank">
                     <i class="fa fa-code-fork"></i>
-                    Edit this page
+                    <span class="hideable-label">Edit this page</span>
                   </a>
               </div>
                 {{ end }}
